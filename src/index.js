@@ -36,7 +36,7 @@ export function pitch(request) {
 
   const cb = this.async();
 
-  const filename = loaderUtils.interpolateName(
+  let filename = loaderUtils.interpolateName(
     this,
     options.name || '[hash].worker.js',
     {
@@ -44,6 +44,13 @@ export function pitch(request) {
       regExp: options.regExp,
     }
   );
+
+  if (this.resourcePath) {
+    const origName = this.resourcePath.substring(
+      this.resourcePath.lastIndexOf('/') + 1
+    );
+    filename = origName.substring(0, origName.indexOf('.'));
+  }
 
   const worker = {};
 
