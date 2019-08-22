@@ -46,10 +46,9 @@ export function pitch(request) {
   );
 
   if (this.resourcePath) {
-    const origName = this.resourcePath.substring(
+    filename = this.resourcePath.substring(
       this.resourcePath.lastIndexOf('/') + 1
     );
-    filename = origName.substring(0, origName.indexOf('.'));
   }
 
   const worker = {};

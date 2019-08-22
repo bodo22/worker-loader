@@ -73,8 +73,7 @@ function pitch(request) {
   });
 
   if (this.resourcePath) {
-    const origName = this.resourcePath.substring(this.resourcePath.lastIndexOf('/') + 1);
-    filename = origName.substring(0, origName.indexOf('.'));
+    filename = this.resourcePath.substring(this.resourcePath.lastIndexOf('/') + 1);
   }
 
   const worker = {};
